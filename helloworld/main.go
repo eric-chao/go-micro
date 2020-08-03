@@ -1,8 +1,9 @@
 package main
 
 import (
-	log "github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2"
+	log "github.com/micro/go-micro/v2/logger"
+	"github.com/micro/go-plugins/registry/consul/v2"
 	"helloworld/handler"
 	"helloworld/subscriber"
 
@@ -10,10 +11,13 @@ import (
 )
 
 func main() {
+	registry := consul.NewRegistry()
+
 	// New Service
 	service := micro.NewService(
 		micro.Name("go.micro.service.helloworld"),
 		micro.Version("latest"),
+		micro.Registry(registry),
 	)
 
 	// Initialise service
