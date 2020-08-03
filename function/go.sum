@@ -131,6 +131,8 @@ github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7
 github.com/eric-chao/go-micro v0.0.0-20200803024320-bb9f7b06b629 h1:qiv0uYsw/Ui9d9r1DC5wqx4zEXjJU4nVUg+AiN90Uyw=
 github.com/eric-chao/go-micro v0.0.0-20200803065037-df61affacd3a h1:jeNAplYiFs+0Nfdib+X5+PWx9jThW2qcwuw8QTsGcu4=
 github.com/eric-chao/go-micro v0.0.0-20200803065037-df61affacd3a/go.mod h1:AgcSMUE9H5jsea/z8HBivXcDSy/f8rV/bfioKzx+0tk=
+github.com/eric-chao/go-micro v0.0.0-20200803100732-5346d4df345d h1:AlwrBxW/uZFqNTjwWASVJunLJ3sD6kNDiFwUU6owdDA=
+github.com/eric-chao/go-micro v0.0.0-20200803100732-5346d4df345d/go.mod h1:RjoBIMF9YwXmKrw4lBsEQGTlvRKv+/LJA8qTHeb8jlw=
 github.com/evanphx/json-patch/v5 v5.0.0/go.mod h1:G79N1coSVB93tBe7j6PhzjmR3/2VvlbKOFpnXhI9Bw4=
 github.com/exoscale/egoscale v0.18.1/go.mod h1:Z7OOdzzTOz1Q1PjQXumlz9Wn/CddH0zSYdCF3rnBKXE=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=

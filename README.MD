@@ -1,7 +1,7 @@
 
 
 ```
-protoc --go_out=./proto_gen/ --micro_out=./proto_gen/ --proto_path ./proto greeter/greeter.proto
+protoc --go_out=./proto_gen/ --micro_out=./proto_gen/ --proto_path ./proto ./greeter/greeter.proto
 ```
 
 # Greeter
