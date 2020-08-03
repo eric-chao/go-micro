@@ -2,8 +2,9 @@ package main
 
 import (
 	"context"
-	proto "github.com/eric-chao/go-micro/proto_gen/proto"
+	 proto "github.com/eric-chao/go-micro/greeter/proto_gen"
 	"github.com/micro/go-micro/v2"
+	"github.com/micro/go-plugins/registry/consul/v2"
 )
 
 type Greeter struct{}
@@ -14,9 +15,12 @@ func (g *Greeter) Hello(ctx context.Context, req *proto.HelloRequest, rsp *proto
 }
 
 func main() {
+	registry := consul.NewRegistry()
+
 	fnc := micro.NewFunction(
-		micro.Name("hello.function"),
+		micro.Name("go.micro.greeter.function"),
 		micro.Version("1.0.0"),
+		micro.Registry(registry),
 	)
 
 	fnc.Init()

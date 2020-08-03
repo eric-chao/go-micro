@@ -5,9 +5,8 @@ import (
 	log "github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-plugins/registry/consul/v2"
 	"helloworld/handler"
+	"helloworld/proto/helloworld"
 	"helloworld/subscriber"
-
-	helloworld "helloworld/proto/helloworld"
 )
 
 func main() {

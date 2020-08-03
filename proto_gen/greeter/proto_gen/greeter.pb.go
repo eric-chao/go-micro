@@ -10,12 +10,6 @@ import (
 	math "math"
 )
 
-import (
-	client "github.com/micro/go-micro/client"
-	server "github.com/micro/go-micro/server"
-	context "golang.org/x/net/context"
-)
-
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
@@ -128,61 +122,4 @@ var fileDescriptor_797d732b8e529c0d = []byte{
 	0x3f, 0x03, 0x24, 0x6f, 0xc5, 0xa8, 0xe5, 0x24, 0x1c, 0x25, 0x08, 0x13, 0x03, 0xfb, 0x30, 0x3e,
 	0x3d, 0x35, 0x2f, 0x89, 0x0d, 0xcc, 0x34, 0x06, 0x04, 0x00, 0x00, 0xff, 0xff, 0xaf, 0x29, 0x5b,
 	0x28, 0x3d, 0x01, 0x00, 0x00,
-}
-
-// Reference imports to suppress errors if they are not otherwise used.
-var _ context.Context
-var _ client.Option
-var _ server.Option
-
-// Client API for Greeter service
-
-type GreeterClient interface {
-	Hello(ctx context.Context, in *HelloRequest, opts ...client.CallOption) (*HelloResponse, error)
-}
-
-type greeterClient struct {
-	c           client.Client
-	serviceName string
-}
-
-func NewGreeterClient(serviceName string, c client.Client) GreeterClient {
-	if c == nil {
-		c = client.NewClient()
-	}
-	if len(serviceName) == 0 {
-		serviceName = "go.micro.service.greeter"
-	}
-	return &greeterClient{
-		c:           c,
-		serviceName: serviceName,
-	}
-}
-
-func (c *greeterClient) Hello(ctx context.Context, in *HelloRequest, opts ...client.CallOption) (*HelloResponse, error) {
-	req := c.c.NewRequest(c.serviceName, "Greeter.Hello", in)
-	out := new(HelloResponse)
-	err := c.c.Call(ctx, req, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// Server API for Greeter service
-
-type GreeterHandler interface {
-	Hello(context.Context, *HelloRequest, *HelloResponse) error
-}
-
-func RegisterGreeterHandler(s server.Server, hdlr GreeterHandler, opts ...server.HandlerOption) {
-	s.Handle(s.NewHandler(&Greeter{hdlr}, opts...))
-}
-
-type Greeter struct {
-	GreeterHandler
-}
-
-func (h *Greeter) Hello(ctx context.Context, in *HelloRequest, out *HelloResponse) error {
-	return h.GreeterHandler.Hello(ctx, in, out)
 }

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package go.micro.service.greeter;
 
-option go_package = "greater/proto_gen";
+option go_package = "greeter/proto_gen";
 
 import "google/api/annotations.proto";
 
